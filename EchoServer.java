@@ -32,6 +32,6 @@ public class EchoServer
 				line = con.readLine();
 				w.println(line);
 			}
-			while ( !line.trim().equals("bye") );
+			while ( !line.trim().equals("Ok") );
 		}
 
