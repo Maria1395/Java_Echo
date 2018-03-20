@@ -8,7 +8,16 @@ public class EchoClient
 {
 	public static void main(String[] args)
 	{
+		
 		try
+		{
+			server = new ServerSocket(portnum);
+		}
+		catch (Exception err)
+		{
+			System.out.println(err);
+		}
+	try	
     {
 	
        Socket s = new Socket("127.0.0.1", 9999);
