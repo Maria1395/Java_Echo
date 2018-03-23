@@ -35,6 +35,19 @@ public class EchoServer
 					w.println(line);
 				}
 				while ( !line.trim().equals("Ok") );
+				client.close();
 			}
 		}
+		catch (Exception err)
+		{
+			System.err.println(err);
+		}
+	}	
+	public static void main(String[] args)
+	{
+		EchoServer s = new EchoServer(9999);
+		s.serve();
+	}
 
+	private ServerSocket server;
+}
