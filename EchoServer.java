@@ -24,18 +24,17 @@ public class EchoServer
 				Socket s = new Socket("127.0.0.1", 9999);
 				BufferedReader r = new BufferedReader(new InputStreamReader(s.getInputStream()));
 				PrintWriter w = new PrintWriter(s.getOutputStream(), true);
-				BufferedReader con = new BufferedReader(new InputStreamReader(System.in));
+				w.println("Welcome to the Java EchoServer.  Type 'bye' to close.");
 				String line;
 				do
 				{
 					line = r.readLine();
 					if ( line != null )
-						System.out.println(line);
-					line = con.readLine();
-					w.println(line);
+						w.println("Got: "+ line);
 				}
-				while ( !line.trim().equals("Ok") );
+				while ( !line.trim().equals("bye") );
 				client.close();
+			
 			}
 		}
 		catch (Exception err)
